@@ -10,16 +10,11 @@
 			$this = $(this).first();
 		}
 		else return;
-		
-		console.log($this.attr('id'));
-		
-		
+
 		if($('.darkens-components').is('*')) {
 			$('.darkens-components').remove();
 		}
-		
-		
-		
+
 		$(document).keyup(function(e) {
 			if (e.keyCode == 27) { 
 				shutDownDarknes();

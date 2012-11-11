@@ -5,14 +5,25 @@
 		<script src="../jquery.darkensaroundme.js"></script>
 		<script>
 			$(document).on('ready', function() {
+				var $debug = false;
+				$('#debug-switch').click(function(){
+					$debug = $debug?false:true;
+					if($debug) {
+						$(this).css('color','#000');
+					}else $(this).css('color','#ccc');
+				}).css({
+					color: '#ccc',
+					cursor: 'pointer'
+				});
+				
 				$('li[id^=showme-]').click(function(){
-					var split = $(this).attr('id').split('-');
-					
+					var split = $(this).attr('id').split('-');					
 					$('#darkens-around-me-please-' + split[1]).darkensAroundMe({
 						addWidth: 40,
 						addELeft: 20,
 						scrollTopDistance: 30,
-						colorDarkens: '#ACAD67'
+						colorDarkens: '#ACAD67',
+						debug: $debug
 					});
 				});
 				$('#panel-showme').darkensAroundMe();
@@ -23,7 +34,6 @@
 		</script>
 	</head>
 	<body>
-		<div id="what-happen" style="background:#fff;position:fixed;display:none;color: red;">Scroll It</div>
 		<div id="content" style="">
 			<div id="panel-showme" style="width:200px;border:1px solid #ccc;position:fixed; top: 10px; right: 20px;">
 				<ul>
@@ -31,6 +41,7 @@
 					<li id="showme-2">Show me the Two</li>
 					<li id="showme-3">Show me the Three</li>
 				</ul>
+				<div id="debug-switch">Debug</div>
 			</div>
 			<div id="darkens-around-me-please-1" class="darkens-this" style="width:300px;margin:40px 200px;background:#f5f5f5;">
 				This content it's important to show!.
