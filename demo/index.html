@@ -26,7 +26,10 @@
 						debug: $debug
 					});
 				});
-				$('#panel-showme').darkensAroundMe();
+				$('#panel-showme').darkensAroundMe({
+					colorDarkens: '#fff',
+					opacity: 0.8
+				});
 				$(window).scroll(function(){
 					$('#what-happen').css("display", "inline").fadeOut("slow"); 
 				});
@@ -34,6 +37,7 @@
 		</script>
 	</head>
 	<body>
+		<h1>Darkens Around Me</h1>
 		<div id="content" style="">
 			<div id="panel-showme" style="width:200px;border:1px solid #ccc;position:fixed; top: 10px; right: 20px;">
 				<ul>
