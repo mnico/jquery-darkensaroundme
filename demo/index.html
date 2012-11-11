@@ -1,0 +1,56 @@
+<html>
+	<head>
+		<title>Darkens Around Me Example</title>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script src="../jquery.darkensaroundme.js"></script>
+		<script>
+			$(document).on('ready', function() {
+				$('li[id^=showme-]').click(function(){
+					var split = $(this).attr('id').split('-');
+					
+					$('#darkens-around-me-please-' + split[1]).darkensAroundMe({
+						addWidth: 40,
+						addELeft: 20,
+						scrollTopDistance: 30,
+						colorDarkens: '#ACAD67'
+					});
+				});
+				$('#panel-showme').darkensAroundMe();
+				$(window).scroll(function(){
+					$('#what-happen').css("display", "inline").fadeOut("slow"); 
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div id="what-happen" style="background:#fff;position:fixed;display:none;color: red;">Scroll It</div>
+		<div id="content" style="">
+			<div id="panel-showme" style="width:200px;border:1px solid #ccc;position:fixed; top: 10px; right: 20px;">
+				<ul>
+					<li id="showme-1">Show me the One</li>
+					<li id="showme-2">Show me the Two</li>
+					<li id="showme-3">Show me the Three</li>
+				</ul>
+			</div>
+			<div id="darkens-around-me-please-1" class="darkens-this" style="width:300px;margin:40px 200px;background:#f5f5f5;">
+				This content it's important to show!.
+				<p>
+					Augue lectus lundium, nec lacus urna, ultricies placerat elementum mattis aliquam in enim turpis augue, mid ac, cras dignissim et eros mauris scelerisque ac, elementum urna dignissim pellentesque, nisi mattis? Nunc cum vut a vel urna. Ut ultricies et mid ut turpis tortor purus, magna ultrices rhoncus magnis, sed magnis penatibus mus purus mauris, est mattis tristique ut elementum est enim nunc mid tortor mid risus pid cursus ultricies? Scelerisque, nascetur enim urna nascetur ultricies aliquam? Velit pellentesque odio mid rhoncus cursus massa placerat? Facilisis, cum dis eu a et urna cum integer ac aliquam nec, in etiam arcu odio? Phasellus massa ac lundium, augue nisi! In? Elit! Rhoncus aliquam dis, magna integer tortor vut turpis scelerisque integer dis cum.
+				</p>
+			</div>
+			<div id="darkens-around-me-please-2" class="darkens-this" style="width:300px;margin:40px 200px;background:#f5f5f5;">
+				This content it's important to show!.
+				<p>
+					Augue lectus lundium, nec lacus urna, ultricies placerat elementum mattis aliquam in enim turpis augue, mid ac, cras dignissim et eros mauris scelerisque ac, elementum urna dignissim pellentesque, nisi mattis? Nunc cum vut a vel urna. Ut ultricies et mid ut turpis tortor purus, magna ultrices rhoncus magnis, sed magnis penatibus mus purus mauris, est mattis tristique ut elementum est enim nunc mid tortor mid risus pid cursus ultricies? Scelerisque, nascetur enim urna nascetur ultricies aliquam? Velit pellentesque odio mid rhoncus cursus massa placerat? Facilisis, cum dis eu a et urna cum integer ac aliquam nec, in etiam arcu odio? Phasellus massa ac lundium, augue nisi! In? Elit! Rhoncus aliquam dis, magna integer tortor vut turpis scelerisque integer dis cum.
+				</p>
+			</div>
+			<div id="darkens-around-me-please-3" class="darkens-this" style="width:300px;margin:40px 200px;background:#f5f5f5;">
+				This content it's important to show!.
+				<p>
+					Augue lectus lundium, nec lacus urna, ultricies placerat elementum mattis aliquam in enim turpis augue, mid ac, cras dignissim et eros mauris scelerisque ac, elementum urna dignissim pellentesque, nisi mattis? Nunc cum vut a vel urna. Ut ultricies et mid ut turpis tortor purus, magna ultrices rhoncus magnis, sed magnis penatibus mus purus mauris, est mattis tristique ut elementum est enim nunc mid tortor mid risus pid cursus ultricies? Scelerisque, nascetur enim urna nascetur ultricies aliquam? Velit pellentesque odio mid rhoncus cursus massa placerat? Facilisis, cum dis eu a et urna cum integer ac aliquam nec, in etiam arcu odio? Phasellus massa ac lundium, augue nisi! In? Elit! Rhoncus aliquam dis, magna integer tortor vut turpis scelerisque integer dis cum.
+				</p>
+			</div>
+		</div>
+		
+	</body>
+</html>
