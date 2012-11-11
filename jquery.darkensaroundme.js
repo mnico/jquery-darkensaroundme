@@ -21,9 +21,9 @@
 			}
 		});
 		$(window).unbind('scroll',applyChangesToDarkness)
-						 .bind('scroll',applyChangesToDarkness)
-						 .unbind('resize',applyChangesToDarkness)
-						 .bind('resize',applyChangesToDarkness);
+							.bind('scroll',applyChangesToDarkness)
+							.unbind('resize',applyChangesToDarkness)
+							.bind('resize',applyChangesToDarkness);
 		
 		var default_opts = {
 			colorDarkens: '#000',
@@ -41,11 +41,12 @@
 		var opts = $.extend({}, default_opts, options);
 		var template = {
 			Shadow : '<div id="darkens-component-top" style="top:0;left:0;width:100%;height:100px;" class="darkens-components"></div>' +
-						 	 '<div id="darkens-component-right" style="top:0;left:0;width:100px;height:100%;" class="darkens-components"></div>' +
-						 	 '<div id="darkens-component-bottom" style="top:0;left:0;width:100%;height:100px;" class="darkens-components"></div>' +
-						 	 '<div id="darkens-component-left" style="top:0;left:0;width:100px;height:100%;" class="darkens-components"></div>',
+								'<div id="darkens-component-right" style="top:0;left:0;width:100px;height:100%;" class="darkens-components"></div>' +
+								'<div id="darkens-component-bottom" style="top:0;left:0;width:100%;height:100px;" class="darkens-components"></div>' +
+								'<div id="darkens-component-left" style="top:0;left:0;width:100px;height:100%;" class="darkens-components"></div>',
 			Debug : '<div id="debug-darkensaroundme"></div>'
-		}
+		};
+		
 		$('body').append(template.Shadow);
 		setStyleDarkness();
 		if(opts.debug) {
@@ -93,66 +94,64 @@
 			
 			var eBottom = valueTop + height;
 			var eRight = valueLeft + width;
-			if(valueTop<0)valueTop=0;
-			if(eBottom<0)eBottom=0;
-			if(valueLeft<0)valueLeft=0;
-			if(eRight<0)eRight=0;
+			if(valueTop < 0)valueTop = 0;
+			if(eBottom < 0)eBottom = 0;
+			if(valueLeft < 0)valueLeft = 0;
+			if(eRight < 0)eRight = 0;
 			
-		 
-		  
-		  $('#darkens-component-top').css({
-		  	height:valueTop,
-		  	width:eRight
-		  });
-		  $('#darkens-component-left').css({
-		  	top:valueTop,
-		  	width:valueLeft
-		  });
-		  $('#darkens-component-right').css({
-		  	left:eRight,
-		  	height:eBottom,
-		  	width:windowWidth
-		  });
-		  $('#darkens-component-bottom').css({
-		  	top: eBottom,
-		  	left: valueLeft,
-		  	height: windowHeight
-		  });
-		  
-		  
-		  if(opts.debug) {
-		  	debug = '<ul>';
-		  	debug += '<li style="color:#EF8222">Component Top';
-		  	debug += '<ul>';
-		  	debug += '<li>height:' + valueTop + '</li>';
-		  	debug += '<li>width:' + eRight + '</li>';
-		  	debug += '</ul>';
-		  	debug += '</li>';
-		  	
-		  	debug += '<li style="color:#A73E0F">Component Left';
-		  	debug += '<ul>';
-		  	debug += '<li>top:' + valueTop + '</li>';
-		  	debug += '<li>width:' + valueLeft + '</li>';
-		  	debug += '</ul>';
-		  	debug += '</li>';
-		  	
-		  	debug += '<li style="color:#236F7F">Component Right';
-		  	debug += '<ul>';
-		  	debug += '<li>left:' + eRight + '</li>';
-		  	debug += '<li>height:' + eBottom + '</li>';
-		  	debug += '<li>width:' + windowWidth + '</li>';
-		  	debug += '</ul>';
-		  	debug += '</li>';
-		  	
-		  	debug += '<li style="color:#797923">Component Bottom';
-		  	debug += '<ul>';
-		  	debug += '<li>top:' + eBottom + '</li>';
-		  	debug += '<li>left:' + valueLeft + '</li>';
-		  	debug += '<li>height:' + windowHeight + '</li>';
-		  	debug += '</ul>';
-		  	debug += '</li>';
-		  	
-		  	debug += '</ul>';
+			
+			$('#darkens-component-top').css({
+				height:valueTop,
+				width:eRight
+			});
+			$('#darkens-component-left').css({
+				top:valueTop,
+				width:valueLeft
+			});
+			$('#darkens-component-right').css({
+				left:eRight,
+				height:eBottom,
+				width:windowWidth
+			});
+			$('#darkens-component-bottom').css({
+				top: eBottom,
+				left: valueLeft,
+				height: windowHeight
+			});
+			
+			if( opts.debug ) {
+				debug = '<ul>';
+				debug += '<li style="color:#EF8222">Component Top';
+				debug += '<ul>';
+				debug += '<li>height:' + valueTop + '</li>';
+				debug += '<li>width:' + eRight + '</li>';
+				debug += '</ul>';
+				debug += '</li>';
+				
+				debug += '<li style="color:#A73E0F">Component Left';
+				debug += '<ul>';
+				debug += '<li>top:' + valueTop + '</li>';
+				debug += '<li>width:' + valueLeft + '</li>';
+				debug += '</ul>';
+				debug += '</li>';
+				
+				debug += '<li style="color:#236F7F">Component Right';
+				debug += '<ul>';
+				debug += '<li>left:' + eRight + '</li>';
+				debug += '<li>height:' + eBottom + '</li>';
+				debug += '<li>width:' + windowWidth + '</li>';
+				debug += '</ul>';
+				debug += '</li>';
+				
+				debug += '<li style="color:#797923">Component Bottom';
+				debug += '<ul>';
+				debug += '<li>top:' + eBottom + '</li>';
+				debug += '<li>left:' + valueLeft + '</li>';
+				debug += '<li>height:' + windowHeight + '</li>';
+				debug += '</ul>';
+				debug += '</li>';
+				
+				debug += '</ul>';
 				$('#debug-darkensaroundme').html(debug);
 			}
 		}
@@ -204,11 +203,11 @@
 			});
 		}
 		function isScrolledIntoView(elem) {
-	    var docViewTop = $(window).scrollTop();
-	    var docViewBottom = docViewTop + $(window).height();
-	
-	    var elemTop = $(elem).offset().top;
-	    var elemBottom = elemTop + $(elem).height();
+			var docViewTop = $(window).scrollTop();
+			var docViewBottom = docViewTop + $(window).height();
+			
+			var elemTop = $(elem).offset().top;
+			var elemBottom = elemTop + $(elem).height();
 		
 			return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
 		}
